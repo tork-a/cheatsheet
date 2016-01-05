@@ -10,7 +10,5 @@ mkdir -p ~/.config/
 echo "github.com:" > ~/.config/hub
 echo "- user: k-okada" >> ~/.config/hub
 echo "  oauth_token: $GITHUB_ACCESS_TOKEN" >> ~/.config/hub
-for pdf in $CIRCLE_ARTIFACTS/*.pdf ; do 
-    hub release create -p -a $pdf -m "$CIRCLE_TAG"$'\n'"Released on `date '+%Y/%m/%d %H:%M:%S'`" $CIRCLE_TAG;
-done
+hub release create -p -a ROScheatsheet_catkin.pdf -m "$CIRCLE_TAG"$'\n'"Released on `date '+%Y/%m/%d %H:%M:%S'`" $CIRCLE_TAG;
 
