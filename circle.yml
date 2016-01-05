@@ -14,4 +14,5 @@ deployment:
   release:
     tag: /[0-9]*/
     commands:
+      - cp *.pdf $CIRCLE_ARTIFACTS/
       - ./.github_release.sh
