@@ -1,7 +1,7 @@
 # PDF TORK Logo Version
 
 You can download PDF with TORK-Logo from
-https://circle-artifacts.com/gh/tork-a/cheatsheet/8/artifacts/0/home/ubuntu/cheatsheet/ROScheatsheet_catkin.pdf
+https://github.com/tork-a/cheatsheet/releases
 
 ```
 git clone http://gihtub.com/ros/cheatsheet
