@@ -10,3 +10,8 @@ general:
 test:
   override:
     - make YOUR_LOGO=tork_logo
+deployment:
+  release:
+    tag: /[0-9]*/
+    commands:
+      - ./.github_release.sh
