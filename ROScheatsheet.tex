@@ -4,7 +4,7 @@
 \usepackage{calc}
 \usepackage{ifthen}
 \usepackage[pdftex]{color,graphicx}
-\usepackage[landscape]{geometry}
+\usepackage[landscape,paperwidth=297mm,paperheight=210mm]{geometry}
 \usepackage{hyperref}
 \usepackage{setspace}
 \hypersetup{colorlinks=true, filecolor=black, linkcolor=black, urlcolor=blue, citecolor=black}
@@ -46,8 +46,8 @@
 \ifthenelse{\lengthtest { \paperwidth = 11in}}
 	{ \geometry{top=.40in,left=.5in,right=.5in,bottom=.40in} }
 	{\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
-		{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
-		{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+		{\geometry{top=0.8cm,left=1.0cm,right=1.0cm,bottom=0.5cm} }
+		{\geometry{top=0.8cm,left=1.0cm,right=1.0cm,bottom=0.5cm} }
 	}
 
 % Turn off header and footer
@@ -106,7 +106,7 @@
 \renewcommand{\arraystretch}{0.85}
 
 \begin{center}
-     \Large{\textbf{ROS Indigo Cheatsheet}} \\
+     \Large{\textbf{ROS Kinetic Cheatsheet}} \\
 \end{center}
 \newlength{\MyLen}
 \settowidth{\MyLen}{\texttt{letterpaper}/\texttt{a4paper} \ }
@@ -383,7 +383,7 @@ E\=x\=amples:\\
 \end{nstabbing}
 
 %\begin{center}
-%     \Large{\textbf{ROS Indigo Cheatsheet}} \\
+%     \Large{\textbf{ROS Kinetic Cheatsheet}} \\
 %\end{center}
 
 \vspace*{-3mm}
@@ -411,19 +411,19 @@ Us\=age, viewing:\\
 Us\=age, bagging:\\
 \> \texttt{\$ rqt\_bag *press the big red record button.*}\\
 \end{nstabbing}
-\vspace*{-3mm}
+\vspace*{-4mm}
 
 \subsection{\href{http://wiki.ros.org/rqt_logger_level}{rqt\_logger\_level}}
 Change the logger level of ROS nodes. This will increase or decrease the information they log to the screen and rqt\_console.\\
 \vspace*{-1mm}
 \begin{nstabbing}
-Us\=age:\\
-\> \texttt{viewing \$ rqt\_logger\_level}\\
+Us\=age: viewing\\
+\> \texttt{\$ rqt\_logger\_level}\\
 \end{nstabbing}
-\vspace*{-3mm}
+\vspace*{-4mm}
 
 \section{Introspection \& Command Tools}
-\vspace*{-1mm}
+\vspace*{-2mm}
 
 \subsection{\href{http://wiki.ros.org/rqt_topic}{rqt\_topic}}
 A tool for viewing published topics in real time.\\
@@ -433,7 +433,7 @@ Us\=age:\\
 \> \texttt{\$ rqt}\\
 \> \texttt{\footnotesize Plugin Menu->Topic->Topic Monitor}\\
 \end{nstabbing}
-\vspace*{-3mm}
+\vspace*{-4mm}
 
 \subsection{\href{http://wiki.ros.org/rqt_msg}{rqt\_msg}, \href{http://wiki.ros.org/rqt_srv}{rqt\_srv}, and \href{http://wiki.ros.org/rqt_action}{rqt\_action}}
 A tool for viewing available msgs, srvs, and actions.\\
@@ -445,7 +445,7 @@ Us\=age:\\
 \> \texttt{\footnotesize Plugin Menu->Service->Service Type Browser}\\
 \> \texttt{\footnotesize Plugin Menu->Action->Action Type Browser}\\
 \end{nstabbing}
-\vspace*{-3mm}
+\vspace*{-4mm}
 
 \subsection{\href{http://wiki.ros.org/rqt_top}{rqt\_top}}
 A tool for ROS specific process monitoring.\\
@@ -455,7 +455,7 @@ Us\=age:\\
 \> \texttt{\$ rqt}\\
 \> \texttt{\footnotesize Plugin Menu->Introspection->Process Monitor}\\
 \end{nstabbing}
-\vspace*{-3mm}
+\vspace*{-4mm}
 
 \subsection{\href{http://wiki.ros.org/rqt_publisher}{rqt\_publisher}, and \href{http://wiki.ros.org/rqt_service_caller}{rqt\_service\_caller}}
 Tools for publishing messages and calling services.\\
@@ -466,7 +466,7 @@ Us\=age:\\
 \> \texttt{\footnotesize Plugin Menu->Topic->Message Publisher}\\
 \> \texttt{\footnotesize Plugin Menu->Service->Service Caller}\\
 \end{nstabbing}
-\vspace*{-3mm}
+\vspace*{-4mm}
 
 
 \subsection{\href{http://wiki.ros.org/rqt_reconfigure}{rqt\_reconfigure}}
@@ -477,19 +477,19 @@ Us\=age:\\
 \> \texttt{\$ rqt}\\
 \> \texttt{\footnotesize Plugin Menu->Configuration->Dynamic Reconfigure}\\
 \end{nstabbing}
-\vspace*{-3mm}
+\vspace*{-4mm}
 
 \subsection{\href{http://wiki.ros.org/rqt_graph}{rqt\_graph}, and \href{http://wiki.ros.org/rqt_dep}{rqt\_dep}}
 Tools for displaying graphs of running ROS nodes with connecting topics and package dependancies respectively.\\
 \includegraphics[width=0.45\columnwidth]{rqt_graph.png}
 \includegraphics[width=0.53\columnwidth]{rqt_dep.png}
-\vspace*{-3mm}
+\vspace*{-1mm}
 \begin{nstabbing}
 Us\=age:\\
 \> \texttt{\$ rqt\_graph}\\
 \> \texttt{\$ rqt\_dep}\\
 \end{nstabbing}
-\vspace*{-3mm}
+\vspace*{-4mm}
 
 
 
@@ -547,7 +547,7 @@ Us\=age:\\
 
 
 \ifcatkin
-\section{ROS Indigo Catkin Workspaces}
+\section{ROS Kinetic Catkin Workspaces}
 
 
 \subsection{\href{http://wiki.ros.org/catkin/Tutorials/create_a_workspace}{Create a catkin workspace}}
@@ -555,7 +555,7 @@ Setup and use a new catkin workspace from scratch.
 {\setstretch{0.8}
 \begin{nstabbing}
 E\=x\=ample:\\
-\> \texttt{\$ source /opt/ros/indigo/setup.bash}\\
+\> \texttt{\$ source /opt/ros/kinetic/setup.bash}\\
 \> \texttt{\$ mkdir -p \textasciitilde/catkin\_ws/src}\\
 \> \texttt{\$ cd \textasciitilde/catkin\_ws/src}\\
 \> \texttt{\$ catkin\_init\_workspace}\\

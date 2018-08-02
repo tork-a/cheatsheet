@@ -1,0 +1,43 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: install tex
+          command: |
+            sudo apt-get update -qq
+            sudo apt-get purge "texlive*"
+            sudo apt-get install texlive-latex-base texlive-font-utils
+            sudo apt-get install texlive-latex-extra
+      - run: make YOUR_LOGO=tork_logo
+      - store_artifacts:
+          path: ROScheatsheet_catkin.pdf
+      - run: mkdir ~/artifacts
+      - run: cp *.pdf ~/artifacts/
+      - persist_to_workspace:
+          root: /home/circleci
+          paths:
+            - artifacts
+
+  deploy:
+    machine: true
+    steps:
+      - attach_workspace:
+          at: /home/circleci
+      - checkout
+      - run: cp ~/artifacts/* .
+      - run: ./.github_release.sh
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
